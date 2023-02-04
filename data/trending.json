@@ -1,0 +1,62 @@
+[
+    {
+        "id": 1,
+        "username": "Andy walker",
+        "group_name": "",
+        "avatar": "/avatar/1.jpg",
+        "title": "Why the Google layoffs are about personal ambition and poor leadership",
+        "date": "Jan 24",
+        "min_read": "8 min read",
+        "star": true
+    },
+    {
+        "id": 2,
+        "username": "Two Techie Vibes",
+        "group_name": "",
+        "avatar": "/avatar/2.jpg",
+        "title": "Algorithms Unlocked: How Theyre Shaping Our Everyday Lives",
+        "date": "Jan 25",
+        "min_read": "6 min read",
+        "star": true
+    },
+    {
+        "id": 3,
+        "username": "Tom Cooper",
+        "group_name": "",
+        "avatar": "/avatar/3.jpg",
+        "title": "Ukraine War, 1 February 2023: Operational Level",
+        "date": "Feb 1",
+        "min_read": "9 min read",
+        "star": false
+    },
+    {
+        "id": 4,
+        "username": "New York Mets",
+        "group_name": "Mets Insider Blog",
+        "avatar": "/avatar/4.jpg",
+        "title": "METS ANNOUNCE 15 PLAYERS INVITED TO MAJOR LEAGUE CAMP",
+        "date": "Feb 3",
+        "min_read": "5 min read",
+        "star": false
+    },
+    {
+        "id": 5,
+        "username": "Andre Cronje",
+        "group_name": "",
+        "avatar": "/avatar/5.jpg",
+        "title": "The death of Defi & RWA",
+        "date": "Feb 1",
+        "min_read": "5 min read",
+        "star": false
+    },
+    {
+        "id": 6,
+        "username": "Kevin Chrisholm",
+        "group_name": "Flutter",
+        "avatar": "/avatar/6.jpg",
+        "title": "Whats new in Flutter 3.7",
+        "date": "Jan 25",
+        "min_read": "12 min read",
+        "star": true
+    }
+]

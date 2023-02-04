@@ -3,6 +3,7 @@ import Head from 'next/head'
 // components
 import Header from '@/components/Header'
 import Navbar from '@/components/Navbar'
+import Trending from '@/components/Trending'
 
 
 export default function Home() {
@@ -17,6 +18,7 @@ export default function Home() {
       <main>
         <Navbar />
         <Header />
+        <Trending />
       </main>
     </>
   )
