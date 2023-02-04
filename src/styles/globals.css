@@ -34,6 +34,13 @@ a {
   margin-top: 75px;
 }
 
+.header-bg {
+  background-image: url(/header.png);
+  background-position: 75% 80%;
+  background-repeat: no-repeat;
+  background-size: 390px 330px;
+}
+
 .main-container {
   @apply px-5 mx-auto flex items-center;
   max-width: 1300px
