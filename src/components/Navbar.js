@@ -45,7 +45,7 @@ const Navbar = () => {
                         </li>
                         <li>
                             <Link href='#'>
-                                <button className='button'>
+                                <button className='btn-rounded-sm-black'>
                                     Get Started
                                 </button>
                             </Link>
