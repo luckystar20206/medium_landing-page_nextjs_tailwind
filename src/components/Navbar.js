@@ -13,8 +13,8 @@ const Navbar = () => {
                         <Image
                             src="/medium.png"
                             alt='medium'
-                            width={160}
-                            height={25}
+                            width={180}
+                            height={48}
                         />
                     </Link>
                 </div>
