@@ -1,9 +1,10 @@
 import Head from 'next/head'
 
 // components
-import Header from '@/components/Header'
 import Navbar from '@/components/Navbar'
+import Header from '@/components/Header'
 import Trending from '@/components/Trending'
+import LastPost from '@/components/LastPost'
 
 
 export default function Home() {
@@ -19,6 +20,7 @@ export default function Home() {
         <Navbar />
         <Header />
         <Trending />
+        <LastPost />
       </main>
     </>
   )
