@@ -65,12 +65,12 @@ const Trending = () => {
                                             </h4>
                                         </div>
                                         <h3 className='font-bold my-2 line-clamp-2'>{post.title}</h3>
-                                        <div className='flex items-corner gap-x-1'>
+                                        <div className='flex items-center gap-x-1'>
                                             <p className='text-xs text-slate-500'>{post.date}</p>
                                             <span className='text-xs text-slate-500 -mt-1'>.</span>
                                             <p className='text-xs text-slate-500'>{post.min_read}</p>
                                             {post.star &&
-                                                <div className='-mt-1'>
+                                                <div className='mt-1'>
                                                     <Image
                                                         src='/icons/star.webp'
                                                         width={20}
