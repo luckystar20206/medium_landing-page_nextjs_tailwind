@@ -1,11 +1,57 @@
-import React from 'react'
+import React, { useEffect, useRef } from 'react'
 import Image from 'next/legacy/image'
 import Link from 'next/link'
 
 
 const Navbar = () => {
+
+    const navRef = useRef(null)
+    const btnRef = useRef(null)
+
+    const windowOnScroll = () => {
+        const { scrollY } = window
+        changeNavbarBg(scrollY)
+        changeBtnBg(scrollY)
+
+    }
+
+    const changeNavbarBg = (scrollY) => {
+        const navbar = navRef.current
+
+        if (scrollY > 423) {
+            navbar.classList.add('bg-white')
+            navbar.classList.remove('bg-yellow-500')
+        } else {
+            navbar.classList.remove('bg-white')
+            navbar.classList.add('bg-yellow-500')
+        }
+    }
+
+    const changeBtnBg = (scrollY) => {
+        const button = btnRef.current
+
+        if (scrollY > 423) {
+            button.classList.add('bg-green-600')
+            button.classList.remove('bg-black')
+        } else {
+            button.classList.remove('bg-green-600')
+            button.classList.add('bg-black')
+        }
+    }
+
+    useEffect(() => {
+        const button = btnRef.current
+        const navbar = navRef.current
+        button.classList.add('bg-black')
+        navbar.classList.add('bg-yellow-500')
+
+        window.addEventListener('scroll', windowOnScroll)
+
+        return () => window.removeEventListener('scroll', windowOnScroll)
+    })
+
     return (
-        <nav className='nav'>
+        <nav ref={navRef} className='nav'>
             <div className='main-container justify-between h-full w-full gap-x-6'>
 
                 <div>
@@ -43,7 +89,7 @@ const Navbar = () => {
                         </li>
                         <li>
                             <Link href='#'>
-                                <button className='btn-rounded-sm-black'>
+                                <button ref={btnRef} className='btn-rounded-sm'>
                                     Get Started
                                 </button>
                             </Link>

@@ -8,6 +8,7 @@ import LastPost from '@/components/LastPost'
 
 
 export default function Home() {
+
   return (
     <>
       <Head>
