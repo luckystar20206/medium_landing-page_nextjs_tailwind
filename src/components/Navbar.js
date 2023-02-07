@@ -5,40 +5,6 @@ import Link from 'next/link'
 
 const Navbar = () => {
 
-    const navRef = useRef(null)
-    const btnRef = useRef(null)
-
-    const windowOnScroll = () => {
-        const { scrollY } = window
-        changeNavbarBg(scrollY)
-        changeBtnBg(scrollY)
-
-    }
-
-    const changeNavbarBg = (scrollY) => {
-        const navbar = navRef.current
-
-        if (scrollY > 423) {
-            navbar.classList.add('bg-white')
-            navbar.classList.remove('bg-yellow-500')
-        } else {
-            navbar.classList.remove('bg-white')
-            navbar.classList.add('bg-yellow-500')
-        }
-    }
-
-    const changeBtnBg = (scrollY) => {
-        const button = btnRef.current
-
-        if (scrollY > 423) {
-            button.classList.add('bg-green-600')
-            button.classList.remove('bg-black')
-        } else {
-            button.classList.remove('bg-green-600')
-            button.classList.add('bg-black')
-        }
-    }
-
     useEffect(() => {
         const button = btnRef.current
         const navbar = navRef.current
@@ -49,6 +15,32 @@ const Navbar = () => {
 
         return () => window.removeEventListener('scroll', windowOnScroll)
     })
+
+    const navRef = useRef(null)
+    const btnRef = useRef(null)
+
+    const windowOnScroll = () => {
+        const { scrollY } = window
+        changeBgColor(scrollY)
+    }
+
+    const changeBgColor = (scrollY) => {
+        const navbar = navRef.current
+        const button = btnRef.current
+
+        if (scrollY > 423) {
+            navbar.classList.remove('bg-yellow-500')
+            button.classList.remove('bg-black')
+            navbar.classList.add('bg-white')
+            button.classList.add('bg-green-600')
+        } else {
+            button.classList.remove('bg-green-600')
+            navbar.classList.remove('bg-white')
+            button.classList.add('bg-black')
+            navbar.classList.add('bg-yellow-500')
+        }
+    }
+
 
     return (
         <nav ref={navRef} className='nav'>
