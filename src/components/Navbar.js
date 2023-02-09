@@ -6,11 +6,6 @@ import Link from 'next/link'
 const Navbar = () => {
 
     useEffect(() => {
-        const button = btnRef.current
-        const navbar = navRef.current
-        button.classList.add('bg-black')
-        navbar.classList.add('bg-yellow-500')
-
         window.addEventListener('scroll', windowOnScroll)
 
         return () => window.removeEventListener('scroll', windowOnScroll)
@@ -43,7 +38,7 @@ const Navbar = () => {
 
 
     return (
-        <nav ref={navRef} className='nav'>
+        <nav ref={navRef} className='nav bg-yellow-500'>
             <div className='main-container justify-between h-full w-full gap-x-6'>
 
                 <div>
@@ -81,7 +76,7 @@ const Navbar = () => {
                         </li>
                         <li>
                             <Link href='#'>
-                                <button ref={btnRef} className='btn-rounded-sm'>
+                                <button ref={btnRef} className='btn-rounded-sm bg-black'>
                                     Get Started
                                 </button>
                             </Link>
