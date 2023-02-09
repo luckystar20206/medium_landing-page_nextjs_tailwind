@@ -7,6 +7,48 @@ import DiscoverData from '../../data/discover.json'
 import MenuData from '../../data/menu.json'
 import LastPostData from '../../data/last_post.json'
 
+// utils
+import Delay from 'utils/Delay'
+
+
+const SkeletonLastPostItem = () => {
+
+    return (
+        <div className='flex items-center gap-x-6 mb-8'>
+            <div className='w 3/5'>
+                <div className='flex items-center gap-x-3 mb-5'>
+                    <div className='rounded-full bg-slate-200 h-[28px] w-[28px]'></div>
+                    <div className='h-2 w-[100px] bg-slate-200 rounded'></div>
+                </div>
+                <div className='h-2 w-[420px] bg-slate-200 rounded mb-5'></div>
+                <div className='h-2 w-[300px] bg-slate-200 rounded mb-8'></div>
+                <div className='h-2 w-[440px] bg-slate-200 rounded mb-5'></div>
+                <div className='h-2 w-[300px] bg-slate-200 rounded mb-8'></div>
+                <div className='flex items-center gap-x-1'>
+                    <div className='h-2 w-[150px] bg-slate-200 rounded'></div>
+                    <div className='rounded bg-slate-200 h-[20px] w-[20px] ml-auto'>
+                    </div>
+                </div>
+            </div>
+            <div className='w-2/3'>
+                <div className='rounded bg-slate-200 w-[200px] h-[135px]'></div>
+            </div>
+        </div>
+    )
+}
+
+const SkeletonLastPost = () => {
+
+    return (
+        <div className='w-full order-2 lg:w-2/3 lg:order-1'>
+            <SkeletonLastPostItem />
+            <SkeletonLastPostItem />
+            <SkeletonLastPostItem />
+            <SkeletonLastPostItem />
+            <SkeletonLastPostItem />
+        </div>
+    )
+}
 
 const LastPost = () => {
 
@@ -14,10 +56,15 @@ const LastPost = () => {
     const [menuData, setMenuData] = useState(null)
     const [lastPost, setLastPost] = useState(null)
 
+    const getLastPost = async () => {
+        await Delay(2000)
+        setLastPost(LastPostData)
+    }
+
     useEffect(() => {
         setDiscoverData(DiscoverData)
         setMenuData(MenuData)
-        setLastPost(LastPostData)
+        getLastPost()
     }, [])
 
     return (
@@ -25,6 +72,7 @@ const LastPost = () => {
             <div className='main-container py-14'>
                 <div className='flex gap-x-12 w-full flex-col lg:flex-row'>
 
+                    {!lastPost && <SkeletonLastPost />}
                     {/* last post */}
                     <div className='w-full order-2 lg:w-2/3 lg:order-1'>
                         {lastPost && lastPost.map((post) => {
@@ -111,8 +159,7 @@ const LastPost = () => {
                     </div>
 
                     {/* discover */}
-                    <div className='w-full order-1 lg:w-1/3 lg:order-2 lg:sticky lg:place-self-start mb-10'
-                        style={{ top: "14%" }}
+                    <div className='w-full order-1 lg:w-1/3 lg:order-2 lg:sticky lg:place-self-start mb-10 top-[13%]'
                     >
                         <h4 className='font-medium text-slate-900 mb-5'>Discover more of what matters to you</h4>
                         <div className='flex flex-wrap gap-x-2 gap-y-2 mb-6'>

@@ -5,17 +5,58 @@ import Link from 'next/link'
 // data
 import TrendingDataPost from '../../data/trending.json'
 
+// utils
+import Delay from 'utils/Delay'
+
+
+const SkeletonTrendingItem = () => {
+    return (
+        <div className='animate-pulse flex gap-x-3'>
+            <div className='rounded bg-slate-200 h-[25px] w-[25px]'></div>
+            <div>
+                <div className='flex items-center gap-x-2 mb-5'>
+                    <div className='rounded-full bg-slate-200 h-[20px] w-[20px]'></div>
+                    <div className='h-2 w-[100px] bg-slate-200 rounded'></div>
+                </div>
+                <div className='h-2 w-[350px] bg-slate-200 rounded mb-5'></div>
+                <div className='h-2 w-[350px] bg-slate-200 rounded mb-5'></div>
+                <div className='h-2 w-[100px] bg-slate-200 rounded mb-[0.15rem]'></div>
+            </div>
+        </div>
+    )
+}
+
+const SkeletonTrending = () => {
+    return (
+        <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8'>
+            <SkeletonTrendingItem />
+            <SkeletonTrendingItem />
+            <SkeletonTrendingItem />
+            <SkeletonTrendingItem />
+            <SkeletonTrendingItem />
+            <SkeletonTrendingItem />
+        </div>
+    )
+}
+
 
 const Trending = () => {
 
     const [posts, setPosts] = useState(null)
 
-    useEffect(() => {
+    const getTrendingPost = async () => {
+        await Delay(2000)
         setPosts(TrendingDataPost)
+    }
+
+    useEffect(() => {
+        getTrendingPost()
     }, [])
 
     return (
         <section className='border-b border-gray-400'>
+
+
             <div className='main-container py-10'>
                 <div>
                     <div className='flex items-center gap-x-3 mb-5'>
@@ -29,7 +70,11 @@ const Trending = () => {
                         />
                         <h2 className='font-medium'>Trending on Medium</h2>
                     </div>
-                    <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8  '>
+
+                    {!posts && <SkeletonTrending />}
+
+                    <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8'>
+
                         {posts && posts.map((post, i) => {
 
                             const number = `0${i + 1}`
