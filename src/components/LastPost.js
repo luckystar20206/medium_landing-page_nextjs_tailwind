@@ -8,7 +8,7 @@ import MenuData from '../../data/menu.json'
 import LastPostData from '../../data/last_post.json'
 
 // utils
-import Delay from 'utils/Delay'
+import RandomDelay from 'utils/Delay'
 
 
 const SkeletonLastPostItem = () => {
@@ -57,7 +57,7 @@ const LastPost = () => {
     const [lastPost, setLastPost] = useState(null)
 
     const getLastPost = async () => {
-        await Delay(2000)
+        await RandomDelay()
         setLastPost(LastPostData)
     }
 

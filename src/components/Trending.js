@@ -6,7 +6,7 @@ import Link from 'next/link'
 import TrendingDataPost from '../../data/trending.json'
 
 // utils
-import Delay from 'utils/Delay'
+import RandomDelay from 'utils/Delay'
 
 
 const SkeletonTrendingItem = () => {
@@ -18,8 +18,8 @@ const SkeletonTrendingItem = () => {
                     <div className='rounded-full bg-slate-200 h-[20px] w-[20px]'></div>
                     <div className='h-2 w-[100px] bg-slate-200 rounded'></div>
                 </div>
-                <div className='h-2 w-[350px] bg-slate-200 rounded mb-5'></div>
-                <div className='h-2 w-[350px] bg-slate-200 rounded mb-5'></div>
+                <div className='h-3 w-[350px] bg-slate-200 rounded mb-4'></div>
+                <div className='h-3 w-[350px] bg-slate-200 rounded mb-4'></div>
                 <div className='h-2 w-[100px] bg-slate-200 rounded mb-[0.15rem]'></div>
             </div>
         </div>
@@ -28,7 +28,7 @@ const SkeletonTrendingItem = () => {
 
 const SkeletonTrending = () => {
     return (
-        <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8'>
+        <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 w-full'>
             <SkeletonTrendingItem />
             <SkeletonTrendingItem />
             <SkeletonTrendingItem />
@@ -45,7 +45,7 @@ const Trending = () => {
     const [posts, setPosts] = useState(null)
 
     const getTrendingPost = async () => {
-        await Delay(2000)
+        await RandomDelay()
         setPosts(TrendingDataPost)
     }
 
