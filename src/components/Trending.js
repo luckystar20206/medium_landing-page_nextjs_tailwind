@@ -72,13 +72,17 @@ const TrendingItems = ({ posts }) => {
                                         <>
                                             <span className='mx-1 text-gray-500'>in</span>
                                             <span>
-                                                {post.group_name}
+                                                <Link href='#'>
+                                                    {post.group_name}
+                                                </Link>
                                             </span>
                                         </>
                                     }
                                 </h4>
                             </div>
-                            <h3 className='font-bold my-2 line-clamp-2'>{post.title}</h3>
+                            <Link href="#">
+                                <h3 className='font-bold my-2 line-clamp-2'>{post.title}</h3>
+                            </Link>
                             <div className='flex items-center gap-x-1'>
                                 <p className='text-xs text-slate-500'>{post.date}</p>
                                 <span className='text-xs text-slate-500 -mt-1'>.</span>

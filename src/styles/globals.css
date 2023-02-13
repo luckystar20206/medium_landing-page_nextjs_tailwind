@@ -49,3 +49,24 @@ a {
   @apply border-b border-black px-5 fixed top-0 z-10 w-full transition-colors;
   height: 75px;
 }
+
+.last-post-thumbnail {
+  position: relative;
+  width: 100px;
+  height: 100px;
+}
+
+
+@media screen(sm) {
+  .last-post-thumbnail {
+    width: 150px;
+    height: 100px;
+  }
+}
+
+@media screen(md) {
+  .last-post-thumbnail {
+    width: 200px;
+    height: 135px;
+  }
+}

@@ -20,18 +20,18 @@ const SkeletonLastPostItem = () => {
                     <div className='rounded-full bg-slate-200 h-[28px] w-[28px]'></div>
                     <div className='h-2 w-[100px] bg-slate-200 rounded'></div>
                 </div>
-                <div className='h-2 w-[420px] bg-slate-200 rounded mb-5'></div>
-                <div className='h-2 w-[300px] bg-slate-200 rounded mb-8'></div>
-                <div className='h-2 w-[440px] bg-slate-200 rounded mb-5'></div>
-                <div className='h-2 w-[300px] bg-slate-200 rounded mb-8'></div>
+                <div className='h-2 w-[250px] sm:w-[355px] md:w-[420px] bg-slate-200 rounded mb-5'></div>
+                <div className='h-2 w-[100px] sm:w-[200px] md:w-[300px] bg-slate-200 rounded mb-8'></div>
+                <div className='hidden md:block h-2 w-[440px] bg-slate-200 rounded mb-5'></div>
+                <div className='hidden md:block h-2 w-[300px] bg-slate-200 rounded mb-8'></div>
                 <div className='flex items-center gap-x-1'>
-                    <div className='h-2 w-[150px] bg-slate-200 rounded'></div>
+                    <div className='h-2 w-[80px] sm:w-[160px] md:w-[150px] bg-slate-200 rounded'></div>
                     <div className='rounded bg-slate-200 h-[20px] w-[20px] ml-auto'>
                     </div>
                 </div>
             </div>
             <div className='w-2/3'>
-                <div className='rounded bg-slate-200 w-[200px] h-[135px]'></div>
+                <div className='rounded bg-slate-200 w-[100px] h-[100px] sm:w-[150px] sm:h[100px] md:w-[200px] md:h-[135px]'></div>
             </div>
         </div>
     )
@@ -76,21 +76,25 @@ const LastPostItems = ({ lastPost }) => {
                                     {post.group_name &&
                                         <>
                                             <span className='mx-1 text-gray-500'>in</span>
-                                            <span>
-                                                {post.group_name}
-                                            </span>
+                                            <Link href="#">
+                                                <span>
+                                                    {post.group_name}
+                                                </span>
+                                            </Link>
                                         </>
                                     }
                                 </h4>
                             </div>
-                            <h3 className='font-bold text-xl my-2 line-clamp-2 tracking-tight'>{post.title}</h3>
-                            <h4 className='font-normal text-lg my-2 text-gray-500 line-clamp-2 tracking-tight'>{post.description}</h4>
+                            <Link href="#">
+                                <h3 className='font-bold text-md md:text-xl my-2 line-clamp-2 tracking-tight'>{post.title}</h3>
+                            </Link>
+                            <h4 className='hidden font-normal text-lg my-2 text-gray-500 md:block line-clamp-2 tracking-tight'>{post.description}</h4>
                             <div className='flex items-center gap-x-1'>
                                 <p className='text-xs text-slate-500'>{post.date}</p>
                                 <span className='text-xs text-slate-500 -mt-1'>.</span>
                                 <p className='text-xs text-slate-500'>{post.min_read}</p>
                                 <span className='text-xs text-slate-500 -mt-1'>.</span>
-                                <div className='px-1 border bg-slate-100 hover:bg-slate-200 transition-colors rounded-full text-gray-400'>
+                                <div className='hidden sm:block px-1 border bg-slate-100 hover:bg-slate-200 transition-colors rounded-full text-gray-400'>
                                     <Link href="#" className='text-sm'>
                                         {post.tag}
                                     </Link>
@@ -121,15 +125,15 @@ const LastPostItems = ({ lastPost }) => {
                                 </div>
                             </div>
                         </div>
-                        <div className='w-2/5'>
-                            <Image
-                                src={post.thumbnail}
-                                width={200}
-                                height={135}
-                                layout='fixed'
-                                alt={post.title}
-                                objectFit='cover'
-                            />
+                        <div className='last-post-thumbnail w-2/5'>
+                            <Link href="#">
+                                <Image
+                                    src={post.thumbnail}
+                                    layout='fill'
+                                    alt={post.title}
+                                    objectFit='cover'
+                                />
+                            </Link>
                         </div>
                     </div>
                 )
